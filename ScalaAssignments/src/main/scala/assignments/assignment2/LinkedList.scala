@@ -22,7 +22,7 @@ class LinkedList {
     target = head
     var node = head
     var counter = n
-    var output: StringBuilder = new StringBuilder()
+    val output: StringBuilder = new StringBuilder()
     while (!node.isEmpty) {
       if (counter > 0)
         counter -= 1
