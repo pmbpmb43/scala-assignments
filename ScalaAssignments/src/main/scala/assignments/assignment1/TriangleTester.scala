@@ -4,7 +4,7 @@ class TriangleTester(val side0: Int, val side1: Int, val side2: Int) {
   
     var triangleType = "scalene"
     
-    private def getType() {
+    private def getType(): Unit = {
       if (side0 == side1) {
         if (side0 == side2) {
           triangleType = "equilateral"

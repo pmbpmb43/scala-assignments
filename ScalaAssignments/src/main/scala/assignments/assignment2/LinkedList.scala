@@ -5,7 +5,7 @@ class LinkedList {
   var head:LinkedListNode = new LinkedListNode()
   var target:LinkedListNode = _
   
-  def add(someData: Any) {
+  def add(someData: Any): Unit = {
     val old = head
     this.head = new LinkedListNode(someData, old)    
   }
@@ -14,11 +14,11 @@ class LinkedList {
      return head.nodeData == None
   }
   
-  def add(someData: List[Any]) {
+  def add(someData: List[Any]): Unit = {
     someData.foreach(f => this.add(f))
   }  
   
-  def getNthNodeFromEnd(n: Int) {    
+  def getNthNodeFromEnd(n: Int): Unit = {    
     target = head
     var node = head
     var counter = n

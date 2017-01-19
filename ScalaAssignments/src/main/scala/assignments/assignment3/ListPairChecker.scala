@@ -4,7 +4,7 @@ class ListPairChecker(val list0: List[Any], val list1: List[Any]) {
   
    var allOfOneInOther = false
    
-   private def checkLists() {  
+   private def checkLists(): Unit = {  
      
      try {
         val intersection = list0.intersect(list1)
