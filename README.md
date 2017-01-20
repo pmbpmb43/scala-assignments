@@ -5,7 +5,7 @@ To compile and run tests with maven (must have maven installed)
 1) open command/DOS prompt
 2) change dir to location of scala-assignments (where files where originally downloaded/cloned to)
 3) change dir to ScalaAssignments	
-4) run this command: mvn -U clean install test
+4) run this command: mvn -U clean install test -- this should build a jar file and also run unit tests
 5) example output to console should include:
 
 [INFO] Surefire report directory: /tmp/scala-assignments/ScalaAssignments/target/surefire-reports
@@ -22,14 +22,14 @@ Linked list element values: <empty list>
 List does not contain sufficient elements for one to be 5 spots from end
 Linked list element values: 4, 3, 2, 1
 List does not contain sufficient elements for one to be 5 spots from end
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.196 sec - in assignments.TestAssignment2
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.195 sec - in assignments.TestAssignment2
 Running assignments.TestAssignment1
-A triangle with side lengths of -1, 1, and 1 is invalid.
+At least one input is invalid -- the given side lengths do not represent a triangle.
 A triangle with side lengths of 1, 1, and 1 is equilateral.
 A triangle with side lengths of 2, 1, and 2 is isosceles.
 A triangle with side lengths of 2, 3, and 1 is scalene.
 A triangle with side lengths of 2, 1, and 1 is isosceles.
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in assignments.TestAssignment1
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in assignments.TestAssignment1
 Running assignments.TestAssignment3
 Given 2 lists A & B, where A=List(abc, 4.2, DEF, 3) and B=List(3, 3, DEF, 5, 4.2, abc, 7), are all elements of one list in the other? true
 Given 2 lists A & B, where A=List() and B=List(), are all elements of one list in the other? true
@@ -45,5 +45,23 @@ Results :
 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0
 
 [INFO]
-[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ ScalaAssignments3 ---
-[INFO] Building jar: /tmp/scala-assignments/ScalaAssignments/target/ScalaAssignments3-0.0.1-SNAPSHOT.jar
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ ScalaAssignments ---
+[INFO] Building jar: /tmp/scala-assignments/ScalaAssignments/target/ScalaAssignments-0.0.1-SNAPSHOT.jar
+
+6) The triangleTest.sh script can be used to manually execute the triangle test (from TestAssignment1)
+   - you will need to modify the exec line to indicate the locations of:
+     a) scala binary on your system -- might be just "scala" if it's in the current path or /usr/local/bin/share
+	 b) resulting jar file from mvn command run above -- from directory where mvn command was run, should be under scala-assignments/ScalaAssignments/target/ScalaAssignments-0.0.1-SNAPSHOT.jar
+	 c) save file and run ./triangleTest.sh
+	 d) Example outputs:
+	 
+./test.sh
+This is a test that takes 3 lengths of a triangle and determines if it's equilateral, isosceles, or scalene.
+Input 3 integers in a row (separated by spaces) and press enter: 9 9 9
+A triangle with side lengths of 9, 9, and 9 is equilateral.
+
+./test.sh
+This is a test that takes 3 lengths of a triangle and determines if it's equilateral, isosceles, or scalene.
+Input 3 integers in a row (separated by spaces) and press enter: 1 -3 4
+At least one input is invalid -- the given side lengths do not represent a triangle.
+
