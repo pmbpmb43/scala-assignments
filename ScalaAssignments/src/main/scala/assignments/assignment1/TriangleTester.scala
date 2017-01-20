@@ -29,7 +29,10 @@ class TriangleTester(val side0: Int, val side1: Int, val side2: Int) {
     getType()
     
     override def toString = {
-      "A triangle with side lengths of %s, %s, and %s is %s.".format(side0, side1, side2, triangleType)
+      if (triangleType == "invalid")
+        "At least one input is invalid -- the given side lengths do not represent a triangle."
+      else
+        "A triangle with side lengths of %s, %s, and %s is %s.".format(side0, side1, side2, triangleType)
     }
 }
 
