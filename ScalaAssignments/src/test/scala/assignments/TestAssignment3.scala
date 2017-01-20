@@ -43,7 +43,7 @@ class TestAssignment3 extends JUnitSuite {
     println(listPairChecker)
   }  
   
-  @Test def testAllOfOneNotInOther: Unit = {
+  @Test def testAllOfOneNotInOther(): Unit = {
     val listPairChecker = new ListPairChecker(List("ghi", "DEF", 5, 4.2, "abc", 7), List("abc", 4.2, "DEF", 3))
     assertFalse(listPairChecker.allOfOneInOther)
     println(listPairChecker)

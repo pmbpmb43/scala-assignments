@@ -6,6 +6,13 @@ import assignments.assignment1.TriangleTester
 import org.scalatest.junit.JUnitSuite
 
 class TestAssignment1 extends JUnitSuite {
+  
+  @Test def testBadInput: Unit = {
+    val triangleTester = new TriangleTester(-1, 1, 1)
+    println(triangleTester)
+    assertEquals(triangleTester.triangleType, "invalid")
+  }
+  
   @Test def testEquilateral: Unit = {
     val triangleTester = new TriangleTester(1, 1, 1)
     println(triangleTester)
